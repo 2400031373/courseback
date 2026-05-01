@@ -1,9 +1,9 @@
-# Use Java 17 image
-FROM openjdk:17-jdk-slim
+# Use stable Java 17 image
+FROM eclipse-temurin:17-jdk-jammy
 
-# Copy jar file into container
+# Copy jar file
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 
-# Run the jar
+# Run app
 ENTRYPOINT ["java","-jar","/app.jar"]
